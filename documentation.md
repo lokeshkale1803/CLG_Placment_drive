@@ -1,4 +1,4 @@
-College placment Driver Website
+## College placment Driver Website
 
 step : firstly we have downloaded or install the packages of the FASTAPI by this --> python -m pip install fastapi uvicorn
 
@@ -13,13 +13,13 @@ step : For running the FastAPI project i have enter the commands python -m uvico
 
 
 AFTER COMPLETING THE BACKEND FILE AND WORKING OF CRUDE OPERATION WE MOVE TO THE 
-                                     ** SUPABASE DATABASE **
+##                                 ** SUPABASE DATABASE **
 
 1.we went to supabase website and there we have login with our account 
 2.After login we have click on new project on the oragnization then 
 3.GO to table editior and kept the table name as placement_drives
 
-table paramerter 
+## table paramerter 
 | Column       | Type        | Setting               |
 | ------------ | ----------- | --------------------- |
 | id           | int8        | Primary Key, Identity |
@@ -103,7 +103,47 @@ def get_drives():
 
 
 
+##         Frontend
 
+## Frontend Development
 
+The frontend of the College Placement Drive Portal was developed using HTML, CSS, and JavaScript. A clean, responsive, and professional user interface was created for students.
 
- ############################## GITHUB ###################################
+The frontend currently includes the following pages:
+
+index.html – Public home page
+login.html – Student login page
+signup.html – Student registration page
+dashboard.html – Logged-in student dashboard
+drives.html – Placement drive listing
+applications.html – Student application status
+profile.html – Student profile management
+
+CSS files are organized separately for the main UI, authentication pages, and dashboard. JavaScript files are also separated based on functionality such as authentication, placement drives, dashboard, profile, and applications.
+
+The frontend is designed with the following flow:
+
+Home Page
+   ↓
+Login / Sign Up
+   ↓
+Student Dashboard
+   ↓
+Placement Drives
+   ↓
+My Applications
+   ↓
+Profile
+
+The frontend is also prepared to communicate with the FastAPI backend using JavaScript fetch() requests.
+
+Current architecture:
+
+Frontend
+HTML + CSS + JavaScript
+        ↓
+FastAPI Backend
+        ↓
+Supabase Database
+
+The frontend UI and page structure are completed. Backend API integration, Supabase authentication, login/signup functionality, and application submission are the next implementation steps.
