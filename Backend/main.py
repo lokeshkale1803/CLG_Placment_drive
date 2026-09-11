@@ -2,14 +2,20 @@
 # Import FastAPI
 from fastapi import FastAPI
 from database import supabase
-
+from fastapi.middleware.cors import CORSMiddleware
 
 
 
 # Create FastAPI application
 app = FastAPI()
 
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 
