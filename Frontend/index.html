@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Placement Drive Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fa-solid fa-graduation-cap"></i> 
+                <span>PlacementPortal</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-links active">Home</a></li>
+                <li><a href="index.html#drives" class="nav-links">Ongoing Drives</a></li>
+                <li><a href="index.html#stats" class="nav-links">Placement Stats</a></li>
+                <li><a href="index.html#contact" class="nav-links">Contact</a></li>
+            </ul>
+            <div class="nav-auth">
+                <a href="login.html" class="btn btn-outline">Log In</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="mobile-menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Kickstart Your Career with <span class="highlight">Top Companies</span></h1>
+            <p class="hero-subtitle">Your gateway to campus placement opportunities. Connect with leading companies and start your career.</p>
+            <div class="hero-cta">
+                <a href="index.html#drives" class="btn btn-primary btn-large">Explore Drives <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="signup.html" class="btn btn-secondary btn-large">Get Started</a>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <div class="hero-graphic">
+                <div class="glass-card stat-card-1">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <div>
+                        <h4>150+</h4>
+                        <p>Partner Companies</p>
+                    </div>
+                </div>
+                <div class="glass-card stat-card-2">
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                    <div>
+                        <h4>24 LPA</h4>
+                        <p>Highest Package</p>
+                    </div>
+                </div>
+                <div class="glow-circle"></div>
+            </div>
+        </div>
+    </header>
+
+    <section id="drives" class="drives-section">
+        <div class="section-header">
+            <h2>Ongoing <span class="highlight">Placement Drives</span></h2>
+            <p>Apply to the latest job openings from top recruiters.</p>
+        </div>
+
+        <div class="drives-grid">
+            <!-- Drive Cards -->
+            <div class="drive-card">
+                <div class="card-header">
+                    <div class="company-logo tech-corp">TC</div>
+                    <div class="status-badge active-badge">Actively Hiring</div>
+                </div>
+                <div class="card-body">
+                    <h3>Software Development Engineer</h3>
+                    <p class="company-name">TechCorp Innovations</p>
+                    <div class="job-details">
+                        <span class="detail-item"><i class="fa-solid fa-indian-rupee-sign"></i> 12-15 LPA</span>
+                        <span class="detail-item"><i class="fa-solid fa-location-dot"></i> Bangalore / Remote</span>
+                        <span class="detail-item"><i class="fa-solid fa-code"></i> Python, React, AWS</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="deadline">
+                        <span>Deadline:</span>
+                        <strong>Oct 15, 2026</strong>
+                    </div>
+                    <a href="login.html" class="btn btn-primary btn-sm apply-btn">Apply Now</a>
+                </div>
+            </div>
+
+            <!-- Drive Card 2 -->
+            <div class="drive-card">
+                <div class="card-header">
+                    <div class="company-logo global-fin">GF</div>
+                    <div class="status-badge closing-badge">Closing Soon</div>
+                </div>
+                <div class="card-body">
+                    <h3>Data Analyst</h3>
+                    <p class="company-name">Global Finance Ltd.</p>
+                    <div class="job-details">
+                        <span class="detail-item"><i class="fa-solid fa-indian-rupee-sign"></i> 8-10 LPA</span>
+                        <span class="detail-item"><i class="fa-solid fa-location-dot"></i> Mumbai</span>
+                        <span class="detail-item"><i class="fa-solid fa-chart-pie"></i> SQL, Tableau, Excel</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="deadline">
+                        <span>Deadline:</span>
+                        <strong class="urgent">Sep 15, 2026</strong>
+                    </div>
+                    <a href="login.html" class="btn btn-primary btn-sm apply-btn">Apply Now</a>
+                </div>
+            </div>
+
+            <!-- Drive Card 3 -->
+            <div class="drive-card">
+                <div class="card-header">
+                    <div class="company-logo cloud-sys">CS</div>
+                    <div class="status-badge upcoming-badge">Upcoming</div>
+                </div>
+                <div class="card-body">
+                    <h3>Cloud Infrastructure Engineer</h3>
+                    <p class="company-name">CloudSys Networks</p>
+                    <div class="job-details">
+                        <span class="detail-item"><i class="fa-solid fa-indian-rupee-sign"></i> 18-24 LPA</span>
+                        <span class="detail-item"><i class="fa-solid fa-location-dot"></i> Hyderabad</span>
+                        <span class="detail-item"><i class="fa-solid fa-server"></i> AWS, Kubernetes, Linux</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="deadline">
+                        <span>Starts:</span>
+                        <strong>Nov 01, 2026</strong>
+                    </div>
+                    <button class="btn btn-outline btn-sm" disabled>Details Soon</button>
+                </div>
+            </div>
+        </div>
+        <div class="view-all-container">
+            <a href="drives.html" class="btn btn-outline">View All Drives <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <section id="stats" class="stats-section">
+        <div class="stats-container">
+            <div class="stat-box">
+                <i class="fa-solid fa-users"></i>
+                <h2 class="counter" data-target="500">0</h2>
+                <p>Students Placed</p>
+            </div>
+            <div class="stat-box">
+                <i class="fa-solid fa-building"></i>
+                <h2 class="counter" data-target="150">0</h2>
+                <p>Partner Companies</p>
+            </div>
+            <div class="stat-box">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+                <h2 class="counter" data-target="24">0</h2>
+                <p>LPA Highest Package</p>
+            </div>
+            <div class="stat-box">
+                <i class="fa-solid fa-percent"></i>
+                <h2 class="counter" data-target="98">0</h2>
+                <p>Placement Rate (%)</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="nav-logo">
+                    <i class="fa-solid fa-graduation-cap"></i> 
+                    <span>PlacementPortal</span>
+                </div>
+                <p>Empowering students to reach their career goals through top-tier campus placements.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Placement Policy</a></li>
+                    <li><a href="login.html">Student Login</a></li>
+                    <li><a href="#">Recruiter Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact" id="contact">
+                <h4>Contact Us</h4>
+                <p><i class="fa-solid fa-envelope"></i> lokeshkale1163@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> +91 9579810876</p>
+                <p><i class="fa-solid fa-location-dot"></i> Placement Cell, Block B</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 College Placement Portal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/home.js"></script>
+    <script>
+        // Check auth status - redirect if already logged in
+        document.addEventListener('DOMContentLoaded', () => {
+            if (checkAuth()) {
+                window.location.href = 'dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>

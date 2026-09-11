@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Applications - Placement Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="dashboard.html" class="nav-logo">
+                <i class="fa-solid fa-graduation-cap"></i> 
+                <span>PlacementPortal</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-links">Dashboard</a></li>
+                <li><a href="drives.html" class="nav-links">Drives</a></li>
+                <li><a href="applications.html" class="nav-links active">My Applications</a></li>
+                <li><a href="profile.html" class="nav-links">Profile</a></li>
+            </ul>
+            <div class="nav-auth">
+                <button id="logoutBtn" class="btn btn-outline">Logout</button>
+            </div>
+            <div class="mobile-menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-main page-main">
+        <div class="page-header">
+            <h1>My Applications</h1>
+            <p>Track the status of your placement drive applications.</p>
+        </div>
+        
+        <div id="loadingState" class="state-message">
+            <i class="fa-solid fa-spinner fa-spin fa-2x"></i>
+            <p>Loading your applications...</p>
+        </div>
+        
+        <div id="errorState" class="state-message" style="display: none;">
+            <i class="fa-solid fa-triangle-exclamation fa-2x"></i>
+            <p>Unable to load applications. Please try again later.</p>
+        </div>
+        
+        <div id="emptyState" class="state-message" style="display: none;">
+            <i class="fa-solid fa-folder-open fa-2x"></i>
+            <p>You haven't applied to any drives yet.</p>
+            <a href="drives.html" class="btn btn-primary mt-2">Explore Drives</a>
+        </div>
+
+        <div class="content-panel" id="applicationsContainer" style="display: none;">
+            <div class="panel-body">
+                <ul class="drive-list" id="applicationsList">
+                    <!-- Applications will be injected here -->
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/applications.js"></script>
+</body>
+</html>

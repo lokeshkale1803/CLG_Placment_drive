@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Placement Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="dashboard.html" class="nav-logo">
+                <i class="fa-solid fa-graduation-cap"></i> 
+                <span>PlacementPortal</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-links">Dashboard</a></li>
+                <li><a href="drives.html" class="nav-links">Drives</a></li>
+                <li><a href="applications.html" class="nav-links">My Applications</a></li>
+                <li><a href="profile.html" class="nav-links active">Profile</a></li>
+            </ul>
+            <div class="nav-auth">
+                <button id="logoutBtn" class="btn btn-outline">Logout</button>
+            </div>
+            <div class="mobile-menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-main page-main">
+        <div class="page-header">
+            <h1>My Profile</h1>
+            <p>Manage your personal information and academic details.</p>
+        </div>
+        
+        <div class="content-panel">
+            <div class="panel-body profile-grid">
+                <div class="profile-sidebar">
+                    <div class="profile-photo">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h2 id="profileNameDisplay">Loading...</h2>
+                    <p class="text-light" id="profileBranchDisplay">...</p>
+                    
+                    <div class="progress-circle mt-2" style="width: 100px; height: 100px;">
+                        <span style="width: 80px; height: 80px; font-size: 1.2rem;" id="profileCompletionDisplay">80%</span>
+                    </div>
+                    <p class="mt-2 text-sm">Profile Completion</p>
+                    
+                    <button class="btn btn-outline btn-full mt-2" style="margin-top: 1.5rem;">
+                        <i class="fa-solid fa-upload"></i> Upload Resume
+                    </button>
+                </div>
+                
+                <div class="profile-form-container">
+                    <form id="profileForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" readonly style="background: #f3f4f6; cursor: not-allowed;">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="branch">Branch</label>
+                                <select id="branch" name="branch">
+                                    <option value="CSE">CSE</option>
+                                    <option value="IT">IT</option>
+                                    <option value="E&TC">E&TC</option>
+                                    <option value="Electrical">Electrical</option>
+                                    <option value="Mechanical">Mechanical</option>
+                                    <option value="Civil">Civil</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="gradYear">Graduation Year</label>
+                                <input type="number" id="gradYear" name="gradYear">
+                            </div>
+                            <div class="form-group">
+                                <label for="cgpa">CGPA</label>
+                                <input type="number" id="cgpa" name="cgpa" step="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label for="backlogs">Active Backlogs</label>
+                                <input type="number" id="backlogs" name="backlogs" value="0">
+                            </div>
+                            <div class="form-group-full form-group">
+                                <label for="skills">Key Skills (comma separated)</label>
+                                <textarea id="skills" name="skills" rows="3" placeholder="e.g., Python, React, Data Structures"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" id="cancelBtn">Cancel</button>
+                            <button type="submit" class="btn btn-primary" id="saveBtn">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

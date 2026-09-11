@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Placement Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-card signup-card">
+            <div class="auth-header">
+                <a href="index.html" class="nav-logo">
+                    <i class="fa-solid fa-graduation-cap"></i> 
+                    <span>PlacementPortal</span>
+                </a>
+                <h2>Create an Account</h2>
+                <p>Register for campus placements</p>
+            </div>
+            
+            <form id="signupForm" class="auth-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="student@college.edu" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-phone"></i>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 9876543210" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="branch">Branch</label>
+                        <div class="input-with-icon select-wrapper">
+                            <i class="fa-solid fa-code-branch"></i>
+                            <select id="branch" name="branch" required>
+                                <option value="" disabled selected>Select Branch</option>
+                                <option value="CSE">CSE</option>
+                                <option value="IT">IT</option>
+                                <option value="E&TC">E&TC</option>
+                                <option value="Electrical">Electrical</option>
+                                <option value="Mechanical">Mechanical</option>
+                                <option value="Civil">Civil</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="gradYear">Graduation Year</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-calendar"></i>
+                            <input type="number" id="gradYear" name="gradYear" min="2020" max="2030" placeholder="2026" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cgpa">CGPA</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-star"></i>
+                            <input type="number" id="cgpa" name="cgpa" min="0" max="10" step="0.01" placeholder="8.5" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" id="password" name="password" placeholder="••••••••" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full" id="signupBtn">Sign Up</button>
+                <div id="signupError" class="auth-error"></div>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Log In</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (checkAuth()) {
+                window.location.href = 'dashboard.html';
+            }
+
+            const signupForm = document.getElementById('signupForm');
+            const signupBtn = document.getElementById('signupBtn');
+            const signupError = document.getElementById('signupError');
+
+            signupForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                
+                if (password !== confirmPassword) {
+                    signupError.textContent = 'Passwords do not match.';
+                    signupError.style.display = 'block';
+                    return;
+                }
+
+                const userData = {
+                    fullName: document.getElementById('fullName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    branch: document.getElementById('branch').value,
+                    gradYear: document.getElementById('gradYear').value,
+                    cgpa: document.getElementById('cgpa').value,
+                    password: password
+                };
+                
+                signupBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Signing up...';
+                signupBtn.disabled = true;
+                signupError.style.display = 'none';
+                
+                try {
+                    const result = await signupUser(userData);
+                    if (result.success) {
+                        window.location.href = 'dashboard.html';
+                    }
+                } catch (error) {
+                    signupError.textContent = 'An error occurred during registration. Please try again.';
+                    signupError.style.display = 'block';
+                    signupBtn.innerHTML = 'Sign Up';
+                    signupBtn.disabled = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

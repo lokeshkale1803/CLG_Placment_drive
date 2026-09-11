@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Placement Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="dashboard.html" class="nav-logo">
+                <i class="fa-solid fa-graduation-cap"></i> 
+                <span>PlacementPortal</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-links active">Dashboard</a></li>
+                <li><a href="drives.html" class="nav-links">Drives</a></li>
+                <li><a href="applications.html" class="nav-links">My Applications</a></li>
+                <li><a href="profile.html" class="nav-links">Profile</a></li>
+            </ul>
+            <div class="nav-auth">
+                <button id="logoutBtn" class="btn btn-outline">Logout</button>
+            </div>
+            <div class="mobile-menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-main">
+        <div class="dashboard-header">
+            <h1 id="welcomeMessage">Welcome, Student</h1>
+            <p>Here is an overview of your placement activities.</p>
+        </div>
+
+        <div class="dashboard-stats-grid">
+            <div class="dash-stat-card">
+                <div class="dash-stat-icon blue">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div class="dash-stat-info">
+                    <h3>8</h3>
+                    <p>Eligible Drives</p>
+                </div>
+            </div>
+            
+            <div class="dash-stat-card">
+                <div class="dash-stat-icon purple">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+                <div class="dash-stat-info">
+                    <h3>3</h3>
+                    <p>Applied Drives</p>
+                </div>
+            </div>
+            
+            <div class="dash-stat-card">
+                <div class="dash-stat-icon warning">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+                <div class="dash-stat-info">
+                    <h3>2</h3>
+                    <p>Shortlisted</p>
+                </div>
+            </div>
+            
+            <div class="dash-stat-card">
+                <div class="dash-stat-icon success">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <div class="dash-stat-info">
+                    <h3>1</h3>
+                    <p>Selected</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-content-grid">
+            <div class="content-panel">
+                <div class="panel-header">
+                    <h2>Upcoming Drives</h2>
+                    <a href="drives.html" class="btn btn-outline btn-sm">Explore Drives</a>
+                </div>
+                <div class="panel-body">
+                    <ul class="drive-list">
+                        <li class="drive-list-item">
+                            <div class="company-logo tech-corp sm">TC</div>
+                            <div class="drive-info">
+                                <h4>Software Development Engineer</h4>
+                                <p>TechCorp Innovations • Oct 15</p>
+                            </div>
+                            <a href="drives.html" class="btn btn-primary btn-sm">Apply</a>
+                        </li>
+                        <li class="drive-list-item">
+                            <div class="company-logo cloud-sys sm">CS</div>
+                            <div class="drive-info">
+                                <h4>Cloud Infrastructure Engineer</h4>
+                                <p>CloudSys Networks • Nov 01</p>
+                            </div>
+                            <span class="status-badge upcoming-badge">Upcoming</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-panel">
+                <div class="panel-header">
+                    <h2>Recent Applications</h2>
+                    <a href="applications.html" class="btn btn-outline btn-sm">My Applications</a>
+                </div>
+                <div class="panel-body">
+                    <ul class="drive-list">
+                        <li class="drive-list-item">
+                            <div class="company-logo global-fin sm">GF</div>
+                            <div class="drive-info">
+                                <h4>Data Analyst</h4>
+                                <p>Global Finance Ltd.</p>
+                            </div>
+                            <span class="status-badge applied-badge">Applied</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="content-panel profile-completion-panel">
+                <div class="panel-header">
+                    <h2>Profile Completion</h2>
+                    <a href="profile.html" class="btn btn-outline btn-sm">Update Profile</a>
+                </div>
+                <div class="panel-body text-center">
+                    <div class="progress-circle">
+                        <span>80%</span>
+                    </div>
+                    <p class="mt-2">Complete your profile to increase your chances of getting shortlisted!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
