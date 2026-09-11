@@ -42,20 +42,6 @@ placement_drives = [
 ]
 
 
-#GET
-
-@app.get("/")
-def home():
-
-    return {
-        "message": "College Placement Drive API is running"
-    }
-
-
-# -----------------------------------------
-# 1. GET - GET ALL PLACEMENT DRIVES
-# -----------------------------------------
-
 @app.get("/drives")
 def get_drives():
 
@@ -68,31 +54,28 @@ def get_drives():
 
     return response.data
 
-# -----------------------------------------
-# 2. GET - GET ONE PLACEMENT DRIVE
-# -----------------------------------------
 
+# GET ONE DRIVE
 @app.get("/drives/{drive_id}")
 def get_drive(drive_id: int):
 
-    # Search placement drive
-    for drive in placement_drives:
+    response = (
+        supabase
+        .table("placement_drives")
+        .select("*")
+        .eq("id", drive_id)
+        .execute()
+    )
 
-        # Check drive ID
-        if drive["id"] == drive_id:
+    if response.data:
+        return response.data[0]
 
-            return drive
-
-    # If drive is not found
     return {
         "message": "Placement drive not found"
     }
 
 
-# -----------------------------------------
-# 3. POST - ADD NEW PLACEMENT DRIVE
-# -----------------------------------------
-
+# POST - ADD DRIVE
 @app.post("/drives")
 def add_drive(
     company_name: str,
@@ -103,9 +86,7 @@ def add_drive(
     drive_date: str
 ):
 
-    # Create new placement drive
     new_drive = {
-        "id": len(placement_drives) + 1,
         "company_name": company_name,
         "job_role": job_role,
         "package": package,
@@ -114,17 +95,17 @@ def add_drive(
         "drive_date": drive_date
     }
 
-    # Add drive to list
-    placement_drives.append(new_drive)
+    response = (
+        supabase
+        .table("placement_drives")
+        .insert(new_drive)
+        .execute()
+    )
 
-    # Return newly created drive
-    return new_drive
+    return response.data
 
 
-# -----------------------------------------
-# 4. PUT - UPDATE PLACEMENT DRIVE
-# -----------------------------------------
-
+# PUT - UPDATE DRIVE
 @app.put("/drives/{drive_id}")
 def update_drive(
     drive_id: int,
@@ -132,43 +113,40 @@ def update_drive(
     minimum_cgpa: float
 ):
 
-    # Search placement drive
-    for drive in placement_drives:
+    updated_data = {
+        "package": package,
+        "minimum_cgpa": minimum_cgpa
+    }
 
-        # Check drive ID
-        if drive["id"] == drive_id:
+    response = (
+        supabase
+        .table("placement_drives")
+        .update(updated_data)
+        .eq("id", drive_id)
+        .execute()
+    )
 
-            # Update values
-            drive["package"] = package
-            drive["minimum_cgpa"] = minimum_cgpa
-
-            return drive
+    if response.data:
+        return response.data
 
     return {
         "message": "Placement drive not found"
     }
 
 
-# -----------------------------------------
-# 5. DELETE - DELETE PLACEMENT DRIVE
-# -----------------------------------------
-
+# DELETE DRIVE
 @app.delete("/drives/{drive_id}")
 def delete_drive(drive_id: int):
 
-    # Search placement drive
-    for drive in placement_drives:
-
-        # Check drive ID
-        if drive["id"] == drive_id:
-
-            # Remove drive
-            placement_drives.remove(drive)
-
-            return {
-                "message": "Placement drive deleted successfully"
-            }
+    response = (
+        supabase
+        .table("placement_drives")
+        .delete()
+        .eq("id", drive_id)
+        .execute()
+    )
 
     return {
-        "message": "Placement drive not found"
+        "message": "Placement drive deleted successfully",
+        "data": response.data
     }
